@@ -1,4 +1,4 @@
-import thread
+import _thread
 import time
 import socket
 import struct
@@ -64,8 +64,8 @@ def multicast():
 
 # Create two threads as follows
 try:
-   thread.start_new_thread( receive_multicast, ("Thread-1", 2, ) )
-   thread.start_new_thread( multicast, ("Thread-2", 4, ) )
+   _thread.start_new_thread( receive_multicast, () )
+   _thread.start_new_thread( multicast, () )
 except:
    print "Error: unable to start thread"
 
